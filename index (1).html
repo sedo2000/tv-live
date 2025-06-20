@@ -1,0 +1,2741 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القنوات العربية - دليل شامل للقنوات التلفزيونية العربية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .nav-logo i {
+            margin-left: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .hero-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-icons i {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icons i:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-icons i:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-icons i:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .floating-icons i:nth-child(4) {
+            top: 30%;
+            right: 30%;
+            animation-delay: 1s;
+        }
+
+        /* Search Section */
+        .search-section {
+            padding: 2rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 50px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            align-items: center;
+        }
+
+        .search-box i {
+            color: #667eea;
+            margin: 0 15px;
+            font-size: 1.2rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            padding: 10px;
+            background: transparent;
+        }
+
+        .search-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Channels Section */
+        .channels-section {
+            padding: 4rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: #667eea;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .channel-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .channel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .channel-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .channel-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 15px;
+        }
+
+        .logo-placeholder.entertainment {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        }
+
+        .logo-placeholder.documentary {
+            background: linear-gradient(45deg, #2ed573, #1e90ff);
+        }
+
+        .logo-placeholder.mbc {
+            background: linear-gradient(45deg, #ff3838, #ff6b6b);
+        }
+
+        .logo-placeholder.sports {
+            background: linear-gradient(45deg, #ffa726, #ff7043);
+        }
+
+        .logo-placeholder.iraqi {
+            background: linear-gradient(45deg, #26a69a, #00acc1);
+        }
+
+        .channel-info {
+            text-align: center;
+        }
+
+        .channel-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .channel-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .channel-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #f8f9fa;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #e9ecef;
+        }
+
+        .channel-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-watch {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .btn-watch:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-favorite {
+            background: none;
+            border: 2px solid #ddd;
+            color: #666;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-favorite:hover {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+            transform: scale(1.1);
+        }
+
+        .btn-favorite.active {
+            background: #ff6b6b;
+            border-color: #ff6b6b;
+            color: white;
+        }
+
+        .btn-favorite.active i {
+            content: '\f004';
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #667eea;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info i {
+            color: #667eea;
+            width: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .channels-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .channel-card {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .search-box input {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .channel-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .btn-watch {
+                width: 100%;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hover Effects */
+        .channel-card:hover .channel-logo {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .channel-card:hover .channel-name {
+            color: #667eea;
+            transition: color 0.3s ease;
+        }
+
+        /* Focus States */
+        .btn:focus,
+        .search-box input:focus,
+        .btn-watch:focus,
+        .btn-favorite:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            .channel-card {
+                border: 2px solid #333;
+            }
+            
+            .tag {
+                border: 2px solid #667eea;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* إضافة المزيد من التحسينات والوظائف التفاعلية */
+
+        /* تحسين تأثيرات الحركة */
+        .channel-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .channel-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* تأثير النبض للأزرار */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+            }
+        }
+
+        .btn-watch:hover {
+            animation: pulse 2s infinite;
+        }
+
+        /* تحسين شريط التمرير */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #5a6fd8, #6a4190);
+        }
+
+        /* تأثير التموج عند النقر */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* تحسين النوافذ المنبثقة */
+        .modal-overlay {
+            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-content {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* تأثيرات التحميل المحسنة */
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* تحسين الاستجابة للشاشات الصغيرة */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+            
+            .channel-card {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .channel-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* تحسين إمكانية الوصول */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* تأثيرات الإضاءة */
+        .glow {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .channel-card:hover .channel-logo {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+
+        /* تحسين الطباعة */
+        @media print {
+            .header,
+            .search-section,
+            .footer,
+            .back-to-top {
+                display: none;
+            }
+            
+            .channel-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+
+        /* تأثيرات الانتقال المحسنة */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.6s ease forwards;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.6s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* تحسين الألوان للوضع المظلم */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+                color: #ecf0f1;
+            }
+            
+            .channels-section {
+                background: #34495e;
+                color: #ecf0f1;
+            }
+            
+            .channel-card {
+                background: #2c3e50;
+                border-color: #34495e;
+                color: #ecf0f1;
+            }
+            
+            .header {
+                background: rgba(44, 62, 80, 0.95);
+            }
+            
+            .nav-link {
+                color: #ecf0f1;
+            }
+            
+            .search-box {
+                background: #34495e;
+                color: #ecf0f1;
+            }
+            
+            .search-box input {
+                color: #ecf0f1;
+            }
+            
+            .search-box input::placeholder {
+                color: #bdc3c7;
+            }
+        }
+
+        /* تأثيرات الجسيمات في الخلفية */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 6s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 8s; }
+
+        /* تحسين الأداء */
+        .channel-card,
+        .btn,
+        .nav-link {
+            will-change: transform;
+        }
+
+        /* تأثيرات الانتقال السلسة */
+        * {
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* تحسين التباين */
+        .high-contrast {
+            filter: contrast(1.2);
+        }
+
+        /* تأثيرات الحدود المتحركة */
+        .animated-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            animation: borderMove 2s linear infinite;
+        }
+
+        @keyframes borderMove {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* تحسين الخطوط */
+        .text-gradient {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* تأثيرات الظلال المتقدمة */
+        .advanced-shadow {
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.1),
+                0 8px 16px rgba(0, 0, 0, 0.1),
+                0 16px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* تحسين الأزرار */
+        .btn-3d {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 12px 24px;
+            position: relative;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .btn-3d:hover {
+            transform: translateY(-2px) rotateX(15deg);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-3d:active {
+            transform: translateY(0) rotateX(0deg);
+        }
+
+        /* تحسين الشبكة */
+        .grid-auto-fit {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* تأثيرات الانعكاس */
+        .reflection {
+            position: relative;
+        }
+
+        .reflection::after {
+            content: '';
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            transform: scaleY(-1);
+            opacity: 0.1;
+            mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        /* تحسين الأيقونات */
+        .icon-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-tv"></i>
+                    <span>القنوات العربية</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#news" class="nav-link">الأخبار</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#entertainment" class="nav-link">الترفيه</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#documentary" class="nav-link">وثائقية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#mbc" class="nav-link">MBC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sports" class="nav-link">الرياضة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#iraqi" class="nav-link">عراقية</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">دليلك الشامل للقنوات العربية</h1>
+            <p class="hero-subtitle">اكتشف أفضل القنوات العربية في الأخبار والترفيه والرياضة والوثائقيات</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('news')">
+                    <i class="fas fa-newspaper"></i>
+                    قنوات الأخبار
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('entertainment')">
+                    <i class="fas fa-play-circle"></i>
+                    قنوات الترفيه
+                </button>
+            </div>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-icons">
+                <i class="fas fa-satellite-dish"></i>
+                <i class="fas fa-broadcast-tower"></i>
+                <i class="fas fa-tv"></i>
+                <i class="fas fa-radio"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن قناة معينة...">
+                <button class="search-btn" onclick="searchChannels()">بحث</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Channels Section -->
+    <section id="news" class="channels-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-newspaper"></i>
+                    قنوات الأخبار العربية
+                </h2>
+                <p class="section-subtitle">أهم القنوات الإخبارية العربية الموثوقة</p>
+            </div>
+            <div class="channels-grid" id="newsChannels">
+                <div class="channel-card" data-category="news">
+                    <div class="channel-logo">
+                        <img src="assets/images/aljazeera-logo.png" alt="الجزيرة">
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">الجزيرة</h3>
+                        <p class="channel-description">قناة إخبارية عربية رائدة تقدم تغطية شاملة للأحداث العالمية والعربية</p>
+                        <div class="channel-tags">
+                            <span class="tag">أخبار</span>
+                            <span class="tag">سياسة</span>
+                            <span class="tag">عالمية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('aljazeera')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="news">
+                    <div class="channel-logo">
+                        <img src="assets/images/alarabiya-logo.png" alt="العربية">
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">العربية</h3>
+                        <p class="channel-description">قناة إخبارية سعودية تقدم أحدث الأخبار والتحليلات السياسية والاقتصادية</p>
+                        <div class="channel-tags">
+                            <span class="tag">أخبار</span>
+                            <span class="tag">اقتصاد</span>
+                            <span class="tag">خليجية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('alarabiya')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="news">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">بي بي سي عربي</h3>
+                        <p class="channel-description">الخدمة العربية لهيئة الإذاعة البريطانية تقدم أخبار موثوقة ومتوازنة</p>
+                        <div class="channel-tags">
+                            <span class="tag">أخبار</span>
+                            <span class="tag">دولية</span>
+                            <span class="tag">موثوقة</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('bbc-arabic')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="news">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">سكاي نيوز عربية</h3>
+                        <p class="channel-description">قناة إخبارية إماراتية تقدم تغطية إخبارية على مدار الساعة</p>
+                        <div class="channel-tags">
+                            <span class="tag">أخبار</span>
+                            <span class="tag">إماراتية</span>
+                            <span class="tag">24/7</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('skynews-arabic')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entertainment Channels Section -->
+    <section id="entertainment" class="channels-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-play-circle"></i>
+                    قنوات الترفيه العربية
+                </h2>
+                <p class="section-subtitle">أفضل قنوات الترفيه والدراما العربية</p>
+            </div>
+            <div class="channels-grid" id="entertainmentChannels">
+                <div class="channel-card" data-category="entertainment">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder entertainment">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">روتانا خليجية</h3>
+                        <p class="channel-description">قناة ترفيهية تقدم أفضل الأفلام والمسلسلات الخليجية والعربية</p>
+                        <div class="channel-tags">
+                            <span class="tag">ترفيه</span>
+                            <span class="tag">أفلام</span>
+                            <span class="tag">خليجية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('rotana-khalijia')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="entertainment">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder entertainment">
+                            <i class="fas fa-child"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">قناة ماجد</h3>
+                        <p class="channel-description">قناة ترفيهية مخصصة للأطفال تقدم برامج تعليمية وترفيهية هادفة</p>
+                        <div class="channel-tags">
+                            <span class="tag">أطفال</span>
+                            <span class="tag">تعليمية</span>
+                            <span class="tag">ترفيه</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('majid-kids')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="entertainment">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder entertainment">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">CN بالعربية</h3>
+                        <p class="channel-description">قناة كرتون نتورك بالعربية تقدم أفضل الرسوم المتحركة للأطفال</p>
+                        <div class="channel-tags">
+                            <span class="tag">أطفال</span>
+                            <span class="tag">كرتون</span>
+                            <span class="tag">ترفيه</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('cn-arabic')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="entertainment">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder entertainment">
+                            <i class="fas fa-music"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">طيور الجنة</h3>
+                        <p class="channel-description">قناة ترفيهية للأطفال تقدم الأناشيد والبرامج التعليمية الهادفة</p>
+                        <div class="channel-tags">
+                            <span class="tag">أطفال</span>
+                            <span class="tag">أناشيد</span>
+                            <span class="tag">تعليمية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('toyor-aljannah')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentary Channels Section -->
+    <section id="documentary" class="channels-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-film"></i>
+                    القنوات الوثائقية العربية
+                </h2>
+                <p class="section-subtitle">أفضل القنوات الوثائقية والثقافية العربية</p>
+            </div>
+            <div class="channels-grid" id="documentaryChannels">
+                <div class="channel-card" data-category="documentary">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder documentary">
+                            <i class="fas fa-video"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">الجزيرة الوثائقية</h3>
+                        <p class="channel-description">قناة وثائقية متخصصة تقدم أفلام وثائقية عالية الجودة باللغة العربية</p>
+                        <div class="channel-tags">
+                            <span class="tag">وثائقية</span>
+                            <span class="tag">ثقافة</span>
+                            <span class="tag">تاريخ</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('aljazeera-doc')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="documentary">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder documentary">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">ناشيونال جيوغرافيك أبو ظبي</h3>
+                        <p class="channel-description">قناة وثائقية تقدم أفلام عن الطبيعة والعلوم والاستكشاف باللغة العربية</p>
+                        <div class="channel-tags">
+                            <span class="tag">طبيعة</span>
+                            <span class="tag">علوم</span>
+                            <span class="tag">استكشاف</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('natgeo-abudhabi')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="documentary">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder documentary">
+                            <i class="fas fa-book"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">الوثائقية</h3>
+                        <p class="channel-description">قناة مصرية متخصصة في إنتاج وعرض الأفلام الوثائقية العربية</p>
+                        <div class="channel-tags">
+                            <span class="tag">وثائقية</span>
+                            <span class="tag">عربية</span>
+                            <span class="tag">مصرية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('alwathaeqiya')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="documentary">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder documentary">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">DW العربية</h3>
+                        <p class="channel-description">قناة ألمانية تقدم برامج وثائقية وثقافية باللغة العربية</p>
+                        <div class="channel-tags">
+                            <span class="tag">ثقافة</span>
+                            <span class="tag">علوم</span>
+                            <span class="tag">دولية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('dw-arabic')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MBC Channels Section -->
+    <section id="mbc" class="channels-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <img src="assets/images/mbc-logo.png" alt="MBC" style="height: 40px; margin-left: 10px;">
+                    قنوات MBC
+                </h2>
+                <p class="section-subtitle">شبكة قنوات MBC الترفيهية والإخبارية</p>
+            </div>
+            <div class="channels-grid" id="mbcChannels">
+                <div class="channel-card" data-category="mbc">
+                    <div class="channel-logo">
+                        <img src="assets/images/mbc-logo.png" alt="MBC1">
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">MBC1</h3>
+                        <p class="channel-description">القناة الرئيسية لشبكة MBC تقدم برامج ترفيهية ومسلسلات وأفلام متنوعة</p>
+                        <div class="channel-tags">
+                            <span class="tag">ترفيه</span>
+                            <span class="tag">مسلسلات</span>
+                            <span class="tag">أفلام</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('mbc1')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="mbc">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder mbc">
+                            <span>2</span>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">MBC2</h3>
+                        <p class="channel-description">قناة متخصصة في عرض الأفلام الأجنبية المدبلجة والمترجمة</p>
+                        <div class="channel-tags">
+                            <span class="tag">أفلام</span>
+                            <span class="tag">أجنبية</span>
+                            <span class="tag">مدبلجة</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('mbc2')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="mbc">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder mbc">
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">MBC3</h3>
+                        <p class="channel-description">قناة مخصصة للأطفال تقدم برامج ترفيهية وتعليمية هادفة</p>
+                        <div class="channel-tags">
+                            <span class="tag">أطفال</span>
+                            <span class="tag">تعليمية</span>
+                            <span class="tag">ترفيه</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('mbc3')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="mbc">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder mbc">
+                            <span>4</span>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">MBC4</h3>
+                        <p class="channel-description">قناة تقدم المسلسلات الأمريكية والبرامج الترفيهية الأجنبية</p>
+                        <div class="channel-tags">
+                            <span class="tag">مسلسلات</span>
+                            <span class="tag">أمريكية</span>
+                            <span class="tag">ترفيه</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('mbc4')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="mbc">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder mbc">
+                            <i class="fas fa-fist-raised"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">MBC Action</h3>
+                        <p class="channel-description">قناة متخصصة في أفلام الأكشن والإثارة والمغامرات</p>
+                        <div class="channel-tags">
+                            <span class="tag">أكشن</span>
+                            <span class="tag">إثارة</span>
+                            <span class="tag">مغامرات</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('mbc-action')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="mbc">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder mbc">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">MBC Drama</h3>
+                        <p class="channel-description">قناة متخصصة في المسلسلات والدراما العربية والتركية</p>
+                        <div class="channel-tags">
+                            <span class="tag">دراما</span>
+                            <span class="tag">مسلسلات</span>
+                            <span class="tag">تركية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('mbc-drama')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="mbc">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder mbc">
+                            <span>MAX</span>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">MBC Max</h3>
+                        <p class="channel-description">قناة تقدم أحدث الأفلام الهوليوودية والبرامج الترفيهية</p>
+                        <div class="channel-tags">
+                            <span class="tag">أفلام</span>
+                            <span class="tag">هوليوود</span>
+                            <span class="tag">حديثة</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('mbc-max')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="mbc">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder mbc">
+                            <i class="fas fa-flag-usa"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">MBC مصر</h3>
+                        <p class="channel-description">قناة مخصصة للمحتوى المصري من مسلسلات وأفلام وبرامج</p>
+                        <div class="channel-tags">
+                            <span class="tag">مصرية</span>
+                            <span class="tag">مسلسلات</span>
+                            <span class="tag">أفلام</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('mbc-masr')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Channels Section -->
+    <section id="sports" class="channels-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-futbol"></i>
+                    القنوات الرياضية العربية
+                </h2>
+                <p class="section-subtitle">أفضل القنوات الرياضية لمتابعة المباريات والأحداث الرياضية</p>
+            </div>
+            <div class="channels-grid" id="sportsChannels">
+                <div class="channel-card" data-category="sports">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder sports">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">beIN Sports</h3>
+                        <p class="channel-description">شبكة قنوات رياضية رائدة تقدم تغطية شاملة للدوريات العالمية</p>
+                        <div class="channel-tags">
+                            <span class="tag">كرة قدم</span>
+                            <span class="tag">دوريات</span>
+                            <span class="tag">عالمية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('bein-sports')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="sports">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder sports">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">الكأس الرياضية</h3>
+                        <p class="channel-description">قناة رياضية قطرية تقدم تغطية للأحداث الرياضية المحلية والعالمية</p>
+                        <div class="channel-tags">
+                            <span class="tag">رياضة</span>
+                            <span class="tag">قطرية</span>
+                            <span class="tag">محلية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('alkass-sports')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="sports">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder sports">
+                            <i class="fas fa-running"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">SSC Sports</h3>
+                        <p class="channel-description">شبكة القنوات الرياضية السعودية تقدم تغطية للدوري السعودي والعالمي</p>
+                        <div class="channel-tags">
+                            <span class="tag">سعودية</span>
+                            <span class="tag">دوري</span>
+                            <span class="tag">كرة قدم</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('ssc-sports')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="sports">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder sports">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">OnTime Sports</h3>
+                        <p class="channel-description">قناة رياضية مصرية تقدم تغطية للدوري المصري والأحداث الرياضية</p>
+                        <div class="channel-tags">
+                            <span class="tag">مصرية</span>
+                            <span class="tag">دوري مصري</span>
+                            <span class="tag">رياضة</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('ontime-sports')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Iraqi Channels Section -->
+    <section id="iraqi" class="channels-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-flag"></i>
+                    القنوات العراقية
+                </h2>
+                <p class="section-subtitle">أهم القنوات التلفزيونية العراقية المحلية والإخبارية</p>
+            </div>
+            <div class="channels-grid" id="iraqiChannels">
+                <div class="channel-card" data-category="iraqi">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder iraqi">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">العراقية العامة</h3>
+                        <p class="channel-description">القناة الرسمية للتلفزيون العراقي تقدم برامج متنوعة وأخبار محلية</p>
+                        <div class="channel-tags">
+                            <span class="tag">رسمية</span>
+                            <span class="tag">أخبار</span>
+                            <span class="tag">محلية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('iraqiya-general')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="iraqi">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder iraqi">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">العراقية الرياضية</h3>
+                        <p class="channel-description">قناة رياضية عراقية تقدم تغطية للدوري العراقي والأحداث الرياضية</p>
+                        <div class="channel-tags">
+                            <span class="tag">رياضة</span>
+                            <span class="tag">دوري عراقي</span>
+                            <span class="tag">كرة قدم</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('iraqiya-sports')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="iraqi">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder iraqi">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">UTV عراق</h3>
+                        <p class="channel-description">قناة ترفيهية عراقية تقدم برامج متنوعة ومسلسلات وأفلام</p>
+                        <div class="channel-tags">
+                            <span class="tag">ترفيه</span>
+                            <span class="tag">مسلسلات</span>
+                            <span class="tag">برامج</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('utv-iraq')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="iraqi">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder iraqi">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">الحرة عراق</h3>
+                        <p class="channel-description">قناة إخبارية تقدم تغطية للأحداث العراقية والإقليمية والدولية</p>
+                        <div class="channel-tags">
+                            <span class="tag">أخبار</span>
+                            <span class="tag">سياسة</span>
+                            <span class="tag">دولية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('alhurra-iraq')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="iraqi">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder iraqi">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">قناة النعيم</h3>
+                        <p class="channel-description">قناة عراقية تقدم محتوى متنوع من البرامج الدينية والثقافية</p>
+                        <div class="channel-tags">
+                            <span class="tag">دينية</span>
+                            <span class="tag">ثقافية</span>
+                            <span class="tag">متنوعة</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('alnaeem-tv')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-card" data-category="iraqi">
+                    <div class="channel-logo">
+                        <div class="logo-placeholder iraqi">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                    </div>
+                    <div class="channel-info">
+                        <h3 class="channel-name">العراق الحدث</h3>
+                        <p class="channel-description">قناة إخبارية عراقية تقدم آخر الأخبار والتطورات المحلية والعربية</p>
+                        <div class="channel-tags">
+                            <span class="tag">أخبار</span>
+                            <span class="tag">أحداث</span>
+                            <span class="tag">محلية</span>
+                        </div>
+                        <div class="channel-actions">
+                            <button class="btn-watch" onclick="watchChannel('iraq-alhadath')">
+                                <i class="fas fa-play"></i>
+                                مشاهدة مباشرة
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>القنوات العربية</h3>
+                    <p>دليلك الشامل لأفضل القنوات التلفزيونية العربية في جميع المجالات</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>الأقسام</h4>
+                    <ul>
+                        <li><a href="#news">قنوات الأخبار</a></li>
+                        <li><a href="#entertainment">قنوات الترفيه</a></li>
+                        <li><a href="#documentary">القنوات الوثائقية</a></li>
+                        <li><a href="#sports">القنوات الرياضية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط مفيدة</h4>
+                    <ul>
+                        <li><a href="#">عن الموقع</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@arabchannels.com</p>
+                        <p><i class="fas fa-phone"></i> +966 11 123 4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 القنوات العربية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Search functionality
+        function searchChannels() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                showAllChannels();
+                return;
+            }
+            
+            const channelCards = document.querySelectorAll('.channel-card');
+            let foundChannels = 0;
+            
+            channelCards.forEach(card => {
+                const channelName = card.querySelector('.channel-name').textContent.toLowerCase();
+                const channelDescription = card.querySelector('.channel-description').textContent.toLowerCase();
+                const channelTags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                
+                const isMatch = channelName.includes(searchTerm) || 
+                               channelDescription.includes(searchTerm) ||
+                               channelTags.some(tag => tag.includes(searchTerm));
+                
+                if (isMatch) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.5s ease';
+                    foundChannels++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show search results message
+            showSearchResults(foundChannels, searchTerm);
+        }
+
+        // Show all channels
+        function showAllChannels() {
+            const channelCards = document.querySelectorAll('.channel-card');
+            channelCards.forEach(card => {
+                card.style.display = 'block';
+                card.style.animation = 'fadeInUp 0.5s ease';
+            });
+            hideSearchResults();
+        }
+
+        // Show search results message
+        function showSearchResults(count, term) {
+            // Remove existing search results message
+            const existingMessage = document.querySelector('.search-results-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            // Create new search results message
+            const message = document.createElement('div');
+            message.className = 'search-results-message';
+            message.style.cssText = `
+                background: #f8f9fa;
+                padding: 1rem;
+                margin: 2rem auto;
+                border-radius: 10px;
+                text-align: center;
+                max-width: 600px;
+                border-left: 4px solid #667eea;
+            `;
+            
+            if (count > 0) {
+                message.innerHTML = `
+                    <p><strong>تم العثور على ${count} قناة تحتوي على "${term}"</strong></p>
+                    <button onclick="showAllChannels()" style="
+                        background: #667eea;
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 20px;
+                        cursor: pointer;
+                        margin-top: 10px;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        عرض جميع القنوات
+                    </button>
+                `;
+            } else {
+                message.innerHTML = `
+                    <p><strong>لم يتم العثور على قنوات تحتوي على "${term}"</strong></p>
+                    <p style="color: #666; margin-top: 10px;">جرب البحث بكلمات أخرى أو تصفح الأقسام المختلفة</p>
+                    <button onclick="showAllChannels()" style="
+                        background: #667eea;
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 20px;
+                        cursor: pointer;
+                        margin-top: 10px;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        عرض جميع القنوات
+                    </button>
+                `;
+            }
+            
+            // Insert message after search section
+            const searchSection = document.querySelector('.search-section');
+            searchSection.insertAdjacentElement('afterend', message);
+        }
+
+        // Hide search results message
+        function hideSearchResults() {
+            const existingMessage = document.querySelector('.search-results-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+        }
+
+        // Search on Enter key press
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchChannels();
+            }
+        });
+
+        // Clear search when input is empty
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            if (e.target.value.trim() === '') {
+                showAllChannels();
+            }
+        });
+
+        // Watch channel functionality
+        function watchChannel(channelId) {
+            // Show loading state
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<span class="loading"></span> جاري التحميل...';
+            button.disabled = true;
+            
+            // Simulate loading time
+            setTimeout(() => {
+                // Reset button
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+                // Show modal or redirect to channel
+                showChannelModal(channelId);
+            }, 1500);
+        }
+
+        // Show channel modal
+        function showChannelModal(channelId) {
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'channel-modal';
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                animation: fadeIn 0.3s ease;
+            `;
+            
+            const modalContent = document.createElement('div');
+            modalContent.style.cssText = `
+                background: white;
+                padding: 2rem;
+                border-radius: 20px;
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+                animation: slideInUp 0.3s ease;
+            `;
+            
+            modalContent.innerHTML = `
+                <h3 style="color: #667eea; margin-bottom: 1rem;">مشاهدة القناة</h3>
+                <p style="margin-bottom: 2rem; color: #666;">
+                    سيتم توجيهك إلى موقع القناة الرسمي أو منصة المشاهدة المباشرة
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button onclick="closeModal()" style="
+                        background: #ddd;
+                        color: #333;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 25px;
+                        cursor: pointer;
+                        font-weight: 600;
+                    ">إلغاء</button>
+                    <button onclick="openChannel('${channelId}')" style="
+                        background: linear-gradient(45deg, #667eea, #764ba2);
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 25px;
+                        cursor: pointer;
+                        font-weight: 600;
+                    ">مشاهدة الآن</button>
+                </div>
+            `;
+            
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.querySelector('.channel-modal');
+            if (modal) {
+                modal.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    modal.remove();
+                }, 300);
+            }
+        }
+
+        // Open channel (simulate)
+        function openChannel(channelId) {
+            closeModal();
+            
+            // Channel URLs mapping (these would be real URLs in production)
+            const channelUrls = {
+                'aljazeera': 'https://www.aljazeera.net/live',
+                'alarabiya': 'https://www.alarabiya.net/live',
+                'bbc-arabic': 'https://www.bbc.com/arabic/live',
+                'skynews-arabic': 'https://www.skynewsarabia.com/live',
+                'mbc1': 'https://www.mbc.net/live/mbc1',
+                'mbc2': 'https://www.mbc.net/live/mbc2',
+                'bein-sports': 'https://www.beinsports.com/live',
+                // Add more channel URLs as needed
+            };
+            
+            const url = channelUrls[channelId] || '#';
+            
+            // Show success message
+            showNotification('سيتم فتح القناة في نافذة جديدة', 'success');
+            
+            // Open in new tab (in production)
+            // window.open(url, '_blank');
+        }
+
+        // Toggle favorite functionality
+        function toggleFavorite(button) {
+            const icon = button.querySelector('i');
+            const isActive = button.classList.contains('active');
+            
+            if (isActive) {
+                button.classList.remove('active');
+                icon.className = 'far fa-heart';
+                showNotification('تم إزالة القناة من المفضلة', 'info');
+            } else {
+                button.classList.add('active');
+                icon.className = 'fas fa-heart';
+                showNotification('تم إضافة القناة إلى المفضلة', 'success');
+            }
+            
+            // Save to localStorage
+            saveFavorites();
+        }
+
+        // Save favorites to localStorage
+        function saveFavorites() {
+            const favorites = [];
+            document.querySelectorAll('.btn-favorite.active').forEach(button => {
+                const channelCard = button.closest('.channel-card');
+                const channelName = channelCard.querySelector('.channel-name').textContent;
+                favorites.push(channelName);
+            });
+            localStorage.setItem('favoriteChannels', JSON.stringify(favorites));
+        }
+
+        // Load favorites from localStorage
+        function loadFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favoriteChannels') || '[]');
+            
+            document.querySelectorAll('.channel-card').forEach(card => {
+                const channelName = card.querySelector('.channel-name').textContent;
+                const favoriteButton = card.querySelector('.btn-favorite');
+                const icon = favoriteButton.querySelector('i');
+                
+                if (favorites.includes(channelName)) {
+                    favoriteButton.classList.add('active');
+                    icon.className = 'fas fa-heart';
+                }
+            });
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            
+            const colors = {
+                success: '#2ed573',
+                error: '#ff3838',
+                info: '#667eea',
+                warning: '#ffa726'
+            };
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${colors[type]};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                z-index: 10001;
+                animation: slideInRight 0.3s ease;
+                max-width: 300px;
+                font-weight: 500;
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Filter channels by category
+        function filterChannels(category) {
+            const channelCards = document.querySelectorAll('.channel-card');
+            
+            channelCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.5s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe channel cards for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load favorites
+            loadFavorites();
+            
+            // Observe elements for animations
+            document.querySelectorAll('.channel-card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Add scroll effect to header
+            let lastScrollTop = 0;
+            const header = document.querySelector('.header');
+            
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling up
+                    header.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        });
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+            
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes slideInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(100%);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateX(100%);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            // Close modal with Escape key
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+            
+            // Search with Ctrl+F
+            if (e.ctrlKey && e.key === 'f') {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+        });
+
+        // Touch gestures for mobile
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe up - could trigger some action
+                } else {
+                    // Swipe down - could trigger some action
+                }
+            }
+        }
+
+        // Performance optimization - Lazy loading for images
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                }
+            });
+        });
+
+        // Apply lazy loading to images
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Add loading states for better UX
+        function addLoadingState(element) {
+            element.style.opacity = '0.7';
+            element.style.pointerEvents = 'none';
+        }
+
+        function removeLoadingState(element) {
+            element.style.opacity = '1';
+            element.style.pointerEvents = 'auto';
+        }
+
+        // Error handling for failed operations
+        window.addEventListener('error', (e) => {
+            console.error('An error occurred:', e.error);
+            showNotification('حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.', 'error');
+        });
+
+        // Service Worker registration for offline support (if needed)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Register service worker here if needed
+            });
+        }
+    </script>
+</body>
+</html>
